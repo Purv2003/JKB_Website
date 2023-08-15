@@ -14,7 +14,7 @@ app.set("views", "./views")
 
 app.get("/", (req, res) => {
     res.render("home", { layout: false, title:"Home",
-    helpers:{
+    /*helpers:{
         listName() {
             let names = ["Purva", "Chiranjeev", "Khushi", "Swaraj"];
             let html = names
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
             return html;
         },
            
-    },
+    },*/
 
 });
     
@@ -36,6 +36,19 @@ app.get("/about", (req, res) => {
      
  });
 });
+
+app.get("/courses/:title", (req, res) => {
+    if(req.params.title==='1st-year-programming')
+    {
+    res.render("courses", { layout: false,title:"First year Programming",})
+    }
+    if(req.params.title=='1st-year-engg-coaching')
+    {
+        res.render("courses", { layout: false,title:"First year Coaching",})
+
+    }
+ });
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
